@@ -15,10 +15,22 @@ namespace LambdaExpressionTask
             Console.WriteLine("##Age");
             AgeOperation age = new AgeOperation(listPersonsInCity);
             age.AllAgeOperations();
-            
+
+            Console.WriteLine("## Name");
+            // UC 5:Checking whether a person having name 'SAM' exists or not.
+            Console.WriteLine("\nChecking whether a person having name 'SAM' exists or not...");
+            CheckNameExistOrNot(listPersonsInCity);
+
         }
 
-       
+        // UC 5
+        private static void CheckNameExistOrNot(List<Person> listPersonsInCity)
+        {
+            if (listPersonsInCity.Exists(e => e.Name == "SAM"))
+            {
+                Console.WriteLine("Yes, A person having name  'SAM' exists in our list");
+            }
+        }
 
         // UC 1
         private static void AddRecords(List<Person> listPersonsInCity)
