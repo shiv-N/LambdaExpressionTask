@@ -16,6 +16,20 @@ namespace LambdaExpressionTask
             Console.WriteLine("\n-----------------------------------------------------------------------------");
             Console.WriteLine("Retrieving Top 2 aged persons from the list who are older than 60 years\n");
             Retrieving_TopTwoRecord_ForAgeIs_LessThanSixty(listPersonsInCity);
+
+            // UC 3: Checks any person's age that is between 13 and 19 years.
+            Console.WriteLine("\n-----------------------------------------------------------------------------");
+            Console.WriteLine("\nChecking whether any person is teen-ager or not...");
+            CheckingForTeenagerPerson(listPersonsInCity);
+        }
+
+        // UC 3
+        private static void CheckingForTeenagerPerson(List<Person> listPersonsInCity)
+        {
+            if (listPersonsInCity.Any(e => (e.Age >= 13 && e.Age <= 19)))
+            {
+                Console.WriteLine("Yes, we have some teen-agers in the list");
+            }
         }
 
         // UC 2
