@@ -25,6 +25,20 @@ namespace LambdaExpressionTask
             Console.WriteLine("\nChecking whether a person having name 'SAM' exists or not...");
             CheckNameExistOrNot(listPersonsInCity);
 
+            // UC 7 :Removing all the persons record from list that have "SAM" name.
+            Console.WriteLine("\nRemoving all the persons record from list that have 'SAM' name");
+            RemoveRecord(listPersonsInCity);
+
+        }
+
+        // UC 7
+        private static void RemoveRecord(List<Person> listPersonsInCity)
+        {
+            listPersonsInCity.RemoveAll(e => (e.Name == "SAM"));
+            if (listPersonsInCity.TrueForAll(e => e.Name != "SAM"))
+            {
+                Console.WriteLine("No person is found with 'SAM' name in current list");
+            }
         }
 
 
