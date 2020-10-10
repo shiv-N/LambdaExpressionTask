@@ -16,11 +16,25 @@ namespace LambdaExpressionTask
             AgeOperation age = new AgeOperation(listPersonsInCity);
             age.AllAgeOperations();
 
-            Console.WriteLine("## Name");
+            // UC 6: skips each person whose age is less than 60.
+            Console.WriteLine("\nSkipping every person whose age is less than 60 years...");
+            SkipRecordLessThanSixtyAge(listPersonsInCity);
+
+            Console.WriteLine("\n## Name");
             // UC 5:Checking whether a person having name 'SAM' exists or not.
             Console.WriteLine("\nChecking whether a person having name 'SAM' exists or not...");
             CheckNameExistOrNot(listPersonsInCity);
 
+        }
+
+
+        // UC 6
+        private static void SkipRecordLessThanSixtyAge(List<Person> listPersonsInCity)
+        {
+            foreach (Person pers in listPersonsInCity.SkipWhile(e => e.Age < 60))
+            {
+                Console.WriteLine("Name : " + pers.Name + " \t\tAge: " + pers.Age);
+            }
         }
 
         // UC 5
