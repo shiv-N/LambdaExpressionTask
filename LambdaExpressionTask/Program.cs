@@ -29,6 +29,18 @@ namespace LambdaExpressionTask
             Console.WriteLine("\nRemoving all the persons record from list that have 'SAM' name");
             RemoveRecord(listPersonsInCity);
 
+
+            // UC 8: Finding the person whose SSN = 203456876 in the list
+            Console.WriteLine("\nFinding the person whose SSN = 203456876 in the list");
+            FindRecordBySSN(listPersonsInCity);
+
+        }
+
+        // UC 8
+        private static void FindRecordBySSN(List<Person> listPersonsInCity)
+        {
+            Person oPerson = listPersonsInCity.Find(e => (e.SSN == "203456876"));
+            Console.WriteLine("The person having SSN '203456876' is : " + oPerson.Name + " \t\tAge: " + oPerson.Age);
         }
 
         // UC 7
