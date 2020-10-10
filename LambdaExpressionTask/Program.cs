@@ -21,6 +21,18 @@ namespace LambdaExpressionTask
             Console.WriteLine("\n-----------------------------------------------------------------------------");
             Console.WriteLine("\nChecking whether any person is teen-ager or not...");
             CheckingForTeenagerPerson(listPersonsInCity);
+
+            // UC 4: Check average of all the person's age
+            Console.WriteLine("\n-----------------------------------------------------------------------------");
+            Console.WriteLine("\nGetting Average of all the person's age...");
+            AllPersonsAverageAge(listPersonsInCity);
+        }
+
+        // UC 4
+        private static void AllPersonsAverageAge(List<Person> listPersonsInCity)
+        {
+            double avgAge = listPersonsInCity.Average(e => e.Age);
+            Console.WriteLine("The average of all the person's age is: " + avgAge);
         }
 
         // UC 3
