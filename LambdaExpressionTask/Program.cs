@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LambdaExpressionTask
 {
@@ -10,8 +11,23 @@ namespace LambdaExpressionTask
             // UC 1: Create list and insert records.
             List<Person> listPersonsInCity = new List<Person>();
             AddRecords(listPersonsInCity);
+
+            // UC 2: Retrieving Top 2 aged persons from the list who are older than 60 years.
+            Console.WriteLine("\n-----------------------------------------------------------------------------");
+            Console.WriteLine("Retrieving Top 2 aged persons from the list who are older than 60 years\n");
+            Retrieving_TopTwoRecord_ForAgeIs_LessThanSixty(listPersonsInCity);
         }
 
+        // UC 2
+        private static void Retrieving_TopTwoRecord_ForAgeIs_LessThanSixty(List<Person> listPersonsInCity)
+        {
+            foreach (Person person in listPersonsInCity.FindAll(e => (e.Age >= 60)).Take(2).ToList())
+            {
+                Console.WriteLine("Name : " + person.Name + " \t\tAge: " + person.Age);
+            }
+        }
+
+        // UC 1
         private static void AddRecords(List<Person> listPersonsInCity)
         {
             listPersonsInCity.Add(new Person("203456876", "John", "12 Main Street, Newyork, NY", 15));
